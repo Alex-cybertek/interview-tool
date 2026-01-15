@@ -55,12 +55,19 @@ if not st.session_state.setup_complete:
 
     st.subheader("Company and Position", divider="rainbow")
 
+    # if "level" not in st.session_state:
+    #     st.session_state["level"] = "Junior"
+    # if "position" not in st.session_state:
+    #     st.session_state["position"] = "Data Scientist"
+    # if "company" not in st.session_state:
+    #     st.session_state["company"] = "Amazon"
+
     if "level" not in st.session_state:
         st.session_state["level"] = "Junior"
     if "position" not in st.session_state:
-        st.session_state["position"] = "Data Scientist"
+        st.session_state["position"] = "Global Business Controller"
     if "company" not in st.session_state:
-        st.session_state["company"] = "Amazon"
+        st.session_state["company"] = "Hitachi"
 
     col1, col2 = st.columns(2)
     with col1:
@@ -70,15 +77,27 @@ if not st.session_state.setup_complete:
             options=["Junior", "Mid-level", "Senior"],
         )
 
+    # with col2:
+    #     st.session_state["position"] = st.selectbox(
+    #         label="Choose a position",
+    #         options=("Data Scientist", "Machine Learning Engineer", "AI Researcher", "Software Engineer"),
+    #     )
     with col2:
         st.session_state["position"] = st.selectbox(
             label="Choose a position",
-            options=("Data Scientist", "Machine Learning Engineer", "AI Researcher", "Software Engineer"),
+            options=("Global Business Controller",
+                     "Director of Funding Governance", 
+                      "Capital Planning and Governance Manager", 
+                      "Director of Finance"),
         )
 
+    # st.session_state["company"] = st.selectbox(
+    #     label="Choose a company",
+    #     options=("Google", "Microsoft", "OpenAI", "Meta", "Amazon", "Udemy")
+    # )
     st.session_state["company"] = st.selectbox(
         label="Choose a company",
-        options=("Google", "Microsoft", "OpenAI", "Meta", "Amazon", "Udemy")
+        options=("Hitachi", "ABB", "Siemens", "Allison Smith Company LLC")
     )
 
     st.write(f"**Your information**: {st.session_state["level"]} {st.session_state["position"]} at {st.session_state["company"]}")
